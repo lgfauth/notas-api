@@ -12,13 +12,14 @@ Gere a lista de tarefas da feature indicada pelo texto após o comando, que deve
 - Leia `specs/constitution.md`, a `spec.md` e o `plan.md` da feature antes de redigir as tarefas. Se algum arquivo não existir ou não puder ser lido, informe o bloqueio e pergunte como proceder; não presuma seu conteúdo.
 - Se o argumento for um número, localize em `specs/` a especificação correspondente ao padrão `<NNN>-*-spec.md`. Se não houver exatamente uma correspondência, pergunte ao usuário qual arquivo usar.
 - Se o argumento for um caminho, use o arquivo indicado como especificação. Localize o `plan.md` na mesma pasta.
+- Determine o número e o slug da feature pelo nome da spec (`<NNN>-<slug>-spec.md`). Se o nome não seguir esse padrão, pergunte ao usuário como nomear a lista.
 - Se a spec e o plano forem inconsistentes, estiverem incompletos ou deixarem uma decisão que altere materialmente as tarefas em aberto, pergunte ao usuário antes de criar ou finalizar a lista. Não invente requisitos nem resolva decisões humanas silenciosamente.
 - Consulte os arquivos relevantes do projeto apenas para tornar os critérios de conclusão concretos e alinhados aos padrões existentes. Não leia `.env`.
 
 ## Regras
 
-- Crie `tasks.md` na mesma pasta da spec.
-- Não implemente nada: não altere código, testes, configuração, spec ou plano. A única saída a criar é `tasks.md`.
+- Crie a lista na mesma pasta da spec, usando o padrão `<NNN>-<slug>-tasks.md` (por exemplo, `001-gerenciamento-de-tarefas-tasks.md`), mantendo o número e o slug da spec.
+- Não implemente nada: não altere código, testes, configuração, spec ou plano. A única saída a criar é o arquivo `<NNN>-<slug>-tasks.md`.
 - Produza uma lista numerada de tarefas em ordem compatível com suas dependências.
 - Cada tarefa deve ser pequena o suficiente para ser concluída em um único commit e conter um critério claro e verificável de conclusão, como um teste específico passando.
 - Comece cada tarefa com a caixa de seleção Markdown `- [ ]`, seguida do número e de um título orientado à ação.
@@ -36,4 +37,4 @@ Use este formato para cada item:
   - **Pronto quando:** critério observável e verificável, incluindo o teste ou comando relevante quando aplicável.
   - **Dependências:** Nenhuma ou números das tarefas necessárias.
 
-Mantenha `tasks.md` focado na execução: não repita o plano inteiro, não inclua código e não transforme decisões humanas pendentes em tarefas de implementação.
+Mantenha o arquivo de tarefas focado na execução: não repita o plano inteiro, não inclua código e não transforme decisões humanas pendentes em tarefas de implementação.
