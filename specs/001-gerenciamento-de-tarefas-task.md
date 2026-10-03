@@ -28,7 +28,7 @@
   - **Pronto quando:** Testes cobrem criação com ID único e estado aberto, filtros e filtro padrão, conclusão e repetição, IDs inexistentes e recusa de remoção de tarefa concluída sem removê-la; não há dependência de HTTP no serviço.
   - **Dependências:** 1, 2.
 
-- [ ] 4. **Implementar API HTTP para tarefas**
+- [x] 4. **Implementar API HTTP para tarefas**
   - **Objetivo:** Criar servidor `node:http` e expor os contratos HTTP, validando entradas com Zod e traduzindo erros de domínio em respostas explícitas.
   - **Arquivos:** `src/http/server.ts` e testes em `src/http/*.test.ts`.
   - **Pronto quando:** Testes HTTP cobrem `POST /tasks`, `GET /tasks` com e sem filtros, `PATCH /tasks/:id` com `{ "status": "done" }`, `DELETE /tasks/:id`, status de sucesso/erro, validação e casos idempotentes; IDs inexistentes retornam não encontrado e remoção de concluída é recusada.
