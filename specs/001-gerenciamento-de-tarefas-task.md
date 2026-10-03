@@ -40,13 +40,13 @@
   - **Pronto quando:** Testes cobrem argumentos e filtros válidos/inválidos, saída das operações, erros de domínio e códigos de saída de sucesso/falha; nenhuma regra de negócio é duplicada na CLI.
   - **Dependências:** 3.
 
-- [ ] 6. **Compor as interfaces e verificar compartilhamento**
+- [x] 6. **Compor as interfaces e verificar compartilhamento**
   - **Objetivo:** Ligar servidor e CLI ao mesmo caminho de armazenamento padrão e verificar compartilhamento, persistência após reinicialização e operação entre interfaces.
   - **Arquivos:** `src/index.ts`, composição compartilhada se necessária, integrações em `src/**/*.test.ts` e ajustes na composição de `src/cli.ts`.
   - **Pronto quando:** Testes de integração criam ou alteram tarefas por uma interface e consultam pela outra; reconstruir as composições com o mesmo arquivo preserva tarefas e estados; API e CLI usam o caminho `data/tasks.json` da raiz do projeto.
   - **Dependências:** 4, 5.
 
-- [ ] 7. **Documentar uso e validar a entrega**
+- [x] 7. **Documentar uso e validar a entrega**
   - **Objetivo:** Documentar os comandos e a persistência local, ignorar os dados runtime no Git e rodar as verificações do projeto.
   - **Arquivos:** `README.md`, `.gitignore`.
   - **Pronto quando:** README descreve as operações HTTP/CLI e `data/tasks.json`; `/data/` está ignorado; `npm test` e `npm run typecheck` passam.

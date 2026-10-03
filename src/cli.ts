@@ -10,7 +10,7 @@ import {
   CompletedTaskRemovalError,
   TaskNotFoundError,
 } from "./domain/task-errors.js";
-import { JsonTaskStore } from "./store/json-task-store.js";
+import { createTaskService } from "./composition.js";
 import { TaskService } from "./service/task-service.js";
 
 const usage =
@@ -32,7 +32,7 @@ export async function runCli(
   args: readonly string[] = process.argv.slice(2),
   options: CliOptions = {},
 ): Promise<number> {
-  const service = options.service ?? new TaskService(new JsonTaskStore());
+  const service = options.service ?? createTaskService();
   const io = options.io ?? {
     stdout: (message: string) => process.stdout.write(message),
     stderr: (message: string) => process.stderr.write(message),

@@ -14,6 +14,8 @@ import { z } from "zod";
 import { taskSchema, type Task } from "../domain/task.js";
 import type { TaskStore } from "./task-store.js";
 
+export const DEFAULT_TASKS_FILE = resolve(process.cwd(), "data", "tasks.json");
+
 const tasksSchema = z.array(taskSchema).superRefine((tasks, context) => {
   const ids = new Set<string>();
 
@@ -55,7 +57,7 @@ export class JsonTaskStore implements TaskStore {
   private readonly lockRetryIntervalMs: number;
 
   constructor(
-    filePath = resolve(process.cwd(), "data", "tasks.json"),
+    filePath = DEFAULT_TASKS_FILE,
     options: JsonTaskStoreOptions = {},
   ) {
     this.filePath = resolve(filePath);
