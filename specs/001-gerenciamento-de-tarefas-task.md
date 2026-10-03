@@ -34,7 +34,7 @@
   - **Pronto quando:** Testes HTTP cobrem `POST /tasks`, `GET /tasks` com e sem filtros, `PATCH /tasks/:id` com `{ "status": "done" }`, `DELETE /tasks/:id`, status de sucesso/erro, validação e casos idempotentes; IDs inexistentes retornam não encontrado e remoção de concluída é recusada.
   - **Dependências:** 3.
 
-- [ ] 5. **Implementar comandos da CLI**
+- [x] 5. **Implementar comandos da CLI**
   - **Objetivo:** Implementar `create --title <texto>`, `list [--filter all|open|done]`, `complete <id>` e `remove <id>`, validando argumentos antes de chamar o serviço.
   - **Arquivos:** módulo de CLI testável em `src/cli.ts` e testes em `src/cli.test.ts`.
   - **Pronto quando:** Testes cobrem argumentos e filtros válidos/inválidos, saída das operações, erros de domínio e códigos de saída de sucesso/falha; nenhuma regra de negócio é duplicada na CLI.
