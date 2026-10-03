@@ -55,6 +55,27 @@ test("create validates arguments and prints the created task", async () => {
   assert.deepEqual(output.stderr, []);
 });
 
+test("create recovers the title when npm consumes the title flag", async () => {
+  const { service, io, output } = createCliHarness();
+  const previousLifecycleEvent = process.env.npm_lifecycle_event;
+  process.env.npm_lifecycle_event = "cli";
+
+  try {
+    assert.equal(await runCli(["create", "Recovered", "title"], { service, io }), 0);
+    assert.deepEqual(JSON.parse(output.stdout[0]), {
+      id: JSON.parse(output.stdout[0]).id,
+      title: "Recovered title",
+      status: "open",
+    });
+  } finally {
+    if (previousLifecycleEvent === undefined) {
+      delete process.env.npm_lifecycle_event;
+    } else {
+      process.env.npm_lifecycle_event = previousLifecycleEvent;
+    }
+  }
+});
+
 test("create rejects malformed arguments and blank titles", async () => {
   const { service, io, output } = createCliHarness();
 

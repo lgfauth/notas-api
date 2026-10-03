@@ -32,6 +32,13 @@ export async function runCli(
   args: readonly string[] = process.argv.slice(2),
   options: CliOptions = {},
 ): Promise<number> {
+  const normalizedArgs =
+    process.env.npm_lifecycle_event === "cli" &&
+    args[0] === "create" &&
+    args.length > 1 &&
+    !args.includes("--title")
+      ? ["create", "--title", args.slice(1).join(" ")]
+      : args;
   const service = options.service ?? createTaskService();
   const io = options.io ?? {
     stdout: (message: string) => process.stdout.write(message),
@@ -39,7 +46,7 @@ export async function runCli(
   };
 
   try {
-    const [command, ...commandArgs] = args;
+    const [command, ...commandArgs] = normalizedArgs;
 
     if (command === "create") {
       if (

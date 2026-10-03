@@ -60,7 +60,8 @@ npm run cli -- remove <id>
 
 `list` aceita os filtros `all`, `open` e `done`; sem filtro, lista todas as
 tarefas. Comandos inválidos e erros de domínio são enviados para `stderr` e
-retornam código de saída diferente de zero.
+retornam código de saída diferente de zero. Ao executar pelo npm, a CLI também
+reconhece o título se o npm remover `--title` dos argumentos repassados.
 
 ## Persistência
 
