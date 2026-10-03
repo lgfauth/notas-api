@@ -16,7 +16,7 @@
   - **Pronto quando:** Testes verificam ID, título aparado e não vazio, estado inicial `open`, filtros aceitos (`all`, `open`, `done`) e rejeição de valores inválidos; `npm test` e `npm run typecheck` passam.
   - **Dependências:** Nenhuma.
 
-- [ ] 2. **Implementar store JSON persistente com lock**
+- [x] 2. **Implementar store JSON persistente com lock**
   - **Objetivo:** Definir a interface do store e implementar leitura/gravação em `data/tasks.json`, com caminho injetável, inicialização do arquivo, validação dos dados lidos, escrita atômica e lock entre processos para operações de escrita.
   - **Arquivos:** `src/store/task-store.ts`, `src/store/json-task-store.ts` e testes em `src/store/*.test.ts`.
   - **Pronto quando:** Testes isolados em diretório temporário verificam persistência após recriar o store, arquivo/diretório ausente, JSON corrompido e falhas de IO sem sucesso falso; teste com processos concorrentes confirma que gravações não perdem atualizações. A falha ao obter lock deve ser explícita, com liberação garantida ao terminar a operação.
