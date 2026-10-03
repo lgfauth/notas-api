@@ -22,7 +22,7 @@
   - **Pronto quando:** Testes isolados em diretório temporário verificam persistência após recriar o store, arquivo/diretório ausente, JSON corrompido e falhas de IO sem sucesso falso; teste com processos concorrentes confirma que gravações não perdem atualizações. A falha ao obter lock deve ser explícita, com liberação garantida ao terminar a operação.
   - **Dependências:** 1.
 
-- [ ] 3. **Implementar regras de negócio de tarefas**
+- [x] 3. **Implementar regras de negócio de tarefas**
   - **Objetivo:** Criar o serviço para criação, listagem filtrada, conclusão idempotente e remoção apenas de tarefas abertas, usando o store e os erros de domínio.
   - **Arquivos:** `src/service/task-service.ts` e testes em `src/service/*.test.ts`.
   - **Pronto quando:** Testes cobrem criação com ID único e estado aberto, filtros e filtro padrão, conclusão e repetição, IDs inexistentes e recusa de remoção de tarefa concluída sem removê-la; não há dependência de HTTP no serviço.
