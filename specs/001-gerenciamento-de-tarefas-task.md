@@ -10,7 +10,7 @@
 
 ## Lista de tarefas
 
-- [ ] 1. **Definir modelo, validações e erros de domínio**
+- [x] 1. **Definir modelo, validações e erros de domínio**
   - **Objetivo:** Criar os tipos de tarefa, schemas Zod para título, estado, filtro e identificador, além dos erros de domínio necessários.
   - **Arquivos:** `src/domain/task.ts`, `src/domain/task-errors.ts` e testes de domínio em `src/domain/*.test.ts`.
   - **Pronto quando:** Testes verificam ID, título aparado e não vazio, estado inicial `open`, filtros aceitos (`all`, `open`, `done`) e rejeição de valores inválidos; `npm test` e `npm run typecheck` passam.
